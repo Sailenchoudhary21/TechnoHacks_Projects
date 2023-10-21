@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company XYZ</title>
+   
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>/* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background-color: #f0f0f0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .about {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        .contact {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        </style>
+        <script>// script.js
+            document.addEventListener("DOMContentLoaded", function () {
+                const contactForm = document.getElementById("contactForm");
+                const thankYouMessage = document.getElementById("thankYouMessage");
+            
+                contactForm.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent the form from submitting and reloading the page
+            
+                    // Get user input
+                    const name = document.getElementById("name").value;
+                    const email = document.getElementById("email").value;
+                    const message = document.getElementById("message").value;
+            
+                    // You can add additional validation here if needed
+            
+                    // Assuming a simple success message for demonstration purposes
+                    thankYouMessage.style.display = "block";
+                    contactForm.style.display = "none";
+            
+                    // You can send the form data to a server here using AJAX or fetch()
+                    // For this basic example, we'll just show the success message.
+                });
+            });
+            </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Company XYZ</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Company XYZ</h2>
+        <p>Your Trusted Partner in Quality Products</p>
+        <a href="#" class="btn">Learn More</a>
+    </section>
+
+    <section class="about">
+        <h3>About Us</h3>
+        <p>We are a leading company dedicated to providing high-quality products that meet your needs. With years of experience and a commitment to excellence, we strive to exceed your expectations.</p>
+    </section>
+
+    <section class="contact">
+        <h3>Contact Us</h3>
+        <p>If you have any questions or would like to inquire about our products, please don't hesitate to get in touch with us.</p>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <div id="thankYouMessage" style="display: none;">
+            <p>Thank you for contacting us! We will get back to you shortly.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Company XYZ. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
