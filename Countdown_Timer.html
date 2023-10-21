@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 24px;
+        }
+        #timer {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        button#start {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        button#stop, button#reset {
+            background-color: #DC3545;
+            color: #fff;
+        }
+        button#restart {
+            background-color: #28A745;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Countdown Timer</h2>
+        <div id="timer">00:00</div>
+        <div id="controls">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+            <button id="restart">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let timeInSeconds = 300; // Set the initial countdown time (in seconds)
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeInSeconds / 60).toString().padStart(2, '0');
+            const seconds = (timeInSeconds % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `${minutes}:${seconds}`;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(function() {
+                if (timeInSeconds > 0) {
+                    timeInSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeInSeconds = 300; // Reset the timer to the initial time
+            updateTimerDisplay();
+        }
+
+        function restartTimer() {
+            resetTimer();
+            startTimer();
+        }
+
+        document.getElementById('start').addEventListener('click', startTimer);
+        document.getElementById('stop').addEventListener('click', stopTimer);
+        document.getElementById('reset').addEventListener('click', resetTimer);
+        document.getElementById('restart').addEventListener('click', restartTimer);
+
+        updateTimerDisplay();
+    </script>
+</body>
+</html>
